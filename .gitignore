@@ -1,3 +1,6 @@
 GMO/Temp/
 GMO/Library/
-GMO/Obj/
+GMO/Obj/	
+*.sln
+*.csproj
+*.userprefs
