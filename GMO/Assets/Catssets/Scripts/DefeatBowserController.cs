@@ -21,14 +21,15 @@ namespace Cat
 
 		public void Win()
 		{
-			// TODO
-			Debug.Log ("win");
+			// TODO]
+			GameObject.FindGameObjectWithTag("GameController").GetComponent<MiniGameController>().Win();
 		}
 
 		public void Lose()
 		{
 			Player.Die ();
 			CameraController.FollowPlayer = false;
+			GameObject.FindGameObjectWithTag("GameController").GetComponent<MiniGameController>().Lose();
 		}
 
 		public void OpenBridge()
