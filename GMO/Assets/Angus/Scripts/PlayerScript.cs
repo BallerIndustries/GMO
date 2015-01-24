@@ -6,7 +6,8 @@ namespace Angus
 	public class PlayerScript : MonoBehaviour 
 	{
 		public Vector2 speed = new Vector2(50, 50);
-		private Vector2 movement;
+        public Vector3 bulletOffset = new Vector3();
+        private Vector2 movement;
 
 		// Update is called once per frame
 		void Update () 
@@ -16,15 +17,14 @@ namespace Angus
 
 			movement = new Vector2(speed.x * inputX, speed.y * inputY);
 
-			bool shoot = Input.GetButtonDown ("Fire1");
-			shoot |= Input.GetButtonDown ("Fire2");
-
+			bool shoot = Input.GetKey(KeyCode.LeftControl);
+ 
 			if (shoot)
 			{
 				WeaponScript weapon = GetComponent<WeaponScript>();
 				if (weapon != null)
 				{
-					weapon.Attack(false);
+					weapon.Attack(false, bulletOffset);
 				}
 			}
 

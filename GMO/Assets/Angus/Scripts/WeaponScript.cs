@@ -24,15 +24,14 @@ namespace Angus
             }
         }
 
-        public void Attack(bool isEnemy)
+        public void Attack(bool isEnemy, Vector3 offset = new Vector3())
         {
             if (CanAttack)
             {
                 shootCooldown = shootingRate;
 
                 var shotTransform = Instantiate(shotPrefab) as Transform;
-
-                shotTransform.position = transform.position;
+                shotTransform.position = transform.position + offset;
 
                 ShotScript shot = shotTransform.gameObject.GetComponent<ShotScript>();
                 if (shot != null)
