@@ -27,8 +27,8 @@ namespace Cat
 
 		public void Lose()
 		{
-			//Player.Die ();
-			//CameraController.FollowPlayer = false;
+			Player.Die ();
+			CameraController.FollowPlayer = false;
 		}
 
 		public void OpenBridge()
