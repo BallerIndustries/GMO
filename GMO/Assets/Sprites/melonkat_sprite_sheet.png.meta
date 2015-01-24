@@ -1,0 +1,289 @@
+fileFormatVersion: 2
+guid: cf0ad4383478c40ff8942d990929a242
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: kitty_helmet
+    21300002: kitty_head
+    21300004: kitty_body
+    21300006: kitty_ear_right
+    21300008: kitty_ear_left
+    21300010: kitty_tail_normal
+    21300012: kitty_tail_scared
+    21300014: kitty_shoulder
+    21300016: kitty_forearm
+    21300018: kitty_foot_left
+    21300020: kitty_foot_right
+    21300022: kitty_thigh_right
+    21300024: kitty_thigh_left
+    21300026: kitty_eyes_normal
+    21300028: kitty_eyes_crazy
+    21300030: kitty_eyes_shocked
+    21300032: kitty_mouth_frown
+    21300034: kitty_mouth_grit
+    21300036: kitty_mouth_tongue
+    21300038: kitty_mouth_smile
+    21300040: kitty_mouth_open
+    21300042: kitty_eyes_dead
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: kitty_helmet
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1675
+        width: 434
+        height: 373
+      alignment: 9
+      pivot: {x: .53169632, y: .392197192}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_head
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 1660
+        width: 381
+        height: 386
+      alignment: 9
+      pivot: {x: .524996042, y: .0723462701}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_body
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 936
+        width: 224
+        height: 281
+      alignment: 9
+      pivot: {x: .513058603, y: .238443241}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_ear_right
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 1557
+        width: 146
+        height: 277
+      alignment: 9
+      pivot: {x: .379924625, y: .120805979}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_ear_left
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 1033
+        width: 116
+        height: 223
+      alignment: 9
+      pivot: {x: .798415065, y: .158658013}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_tail_normal
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 1014
+        width: 278
+        height: 365
+      alignment: 9
+      pivot: {x: .909431279, y: .312366545}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_tail_scared
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1308
+        width: 332
+        height: 366
+      alignment: 9
+      pivot: {x: .929999292, y: .0914973691}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_shoulder
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 1083
+        width: 114
+        height: 142
+      alignment: 9
+      pivot: {x: .559229791, y: .778508604}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_forearm
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 1119
+        width: 137
+        height: 247
+      alignment: 9
+      pivot: {x: .668980062, y: .878806889}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_foot_left
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 1231
+        width: 128
+        height: 136
+      alignment: 9
+      pivot: {x: .492464066, y: .726962805}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_foot_right
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 1515
+        width: 106
+        height: 143
+      alignment: 9
+      pivot: {x: .537223935, y: .849504352}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_thigh_right
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 1834
+        width: 162
+        height: 213
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_thigh_left
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 911
+        width: 119
+        height: 213
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_eyes_normal
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 1514
+        width: 284
+        height: 146
+      alignment: 9
+      pivot: {x: .621073127, y: .35639599}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_eyes_crazy
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 1380
+        width: 284
+        height: 131
+      alignment: 9
+      pivot: {x: .626091182, y: .403971672}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_eyes_shocked
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 1370
+        width: 282
+        height: 145
+      alignment: 9
+      pivot: {x: .627879679, y: .395892531}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_mouth_frown
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 1741
+        width: 56
+        height: 93
+      alignment: 9
+      pivot: {x: .694364369, y: .853549778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_mouth_grit
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 1586
+        width: 88
+        height: 92
+      alignment: 9
+      pivot: {x: .756208241, y: .888025701}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_mouth_tongue
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 1472
+        width: 90
+        height: 108
+      alignment: 9
+      pivot: {x: .802705884, y: .88273114}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_mouth_smile
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 1391
+        width: 80
+        height: 82
+      alignment: 9
+      pivot: {x: .590547502, y: .842615485}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_mouth_open
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 1259
+        width: 138
+        height: 109
+      alignment: 9
+      pivot: {x: .722305954, y: .842306435}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: kitty_eyes_dead
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1217
+        width: 253
+        height: 92
+      alignment: 9
+      pivot: {x: .590766191, y: .320243508}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
