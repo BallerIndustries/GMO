@@ -1,7 +1,9 @@
 GMO/Temp/
 GMO/Library/
 GMO/Obj/	
+GMO/obj/
 *.sln
 *.csproj
 *.userprefs
 *.DS_Store
+*.suo
