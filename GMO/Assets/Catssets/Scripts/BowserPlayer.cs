@@ -9,6 +9,8 @@ namespace Cat
 		public float DieJumpHeight;
 		public Feet Feet;
 		public DefeatBowserController GameController;
+		public Animator Animator;
+		public ParticleSystem LandParticles;
 
 		// Use this for initialization
 		void Start () {
@@ -44,11 +46,17 @@ namespace Cat
 
 		public void Die()
 		{
+			Animator.SetTrigger ("die");
 			Feet.collider2D.enabled = false;
 			this.collider2D.enabled = false;
 			this.rigidbody2D.velocity = new Vector2(0, 0);
 			this.rigidbody2D.AddForce (new Vector2(0, DieJumpHeight), ForceMode2D.Impulse);
 			this.GetComponent<BowserPlayerController>().enabled = false;
+		}
+
+		public void EmitLandParticles()
+		{
+			LandParticles.Emit (10);
 		}
 	}
 }
