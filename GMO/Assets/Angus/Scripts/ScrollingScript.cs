@@ -66,9 +66,6 @@ namespace Angus
                                 lastPosition.y,
                                 lastPosition.z);
 
-                            //Set the recycled child to the last position of the 
-
-                            // backgroundPart list.
                             backgroundPart.Remove(firstChild);
                             backgroundPart.Add(firstChild);
                         }
