@@ -1,0 +1,289 @@
+fileFormatVersion: 2
+guid: e61f04d5e0fbf4ee7b7db1803a7e53e6
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: shiba_goggles
+    21300002: shiba_head
+    21300004: shiba_tail
+    21300006: shiba_body
+    21300008: shiba_ear_right
+    21300010: shiba_ear_left
+    21300012: shiba_scarf
+    21300014: shiba_hand
+    21300016: shiba_foot_right
+    21300018: shiba_foot_left
+    21300020: shiba_thigh_right
+    21300022: shiba_thigh_left
+    21300024: shiba_arm
+    21300026: shiba_eyes_angry
+    21300028: shiba_eyes_happy
+    21300030: shiba_eyes_shocked
+    21300032: shiba_mouth_happy
+    21300034: shiba_mouth_shout
+    21300036: shiba_scarftail
+    21300038: shiba_mouth_smile
+    21300040: shiba_mouth_grit
+    21300042: shiba_mouth_smirk
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: shiba_goggles
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 815
+        width: 430
+        height: 202
+      alignment: 9
+      pivot: {x: .0873550698, y: .561642468}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_head
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 684
+        width: 391
+        height: 339
+      alignment: 9
+      pivot: {x: .52945435, y: .100773722}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_tail
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 670
+        width: 177
+        height: 250
+      alignment: 9
+      pivot: {x: .806047082, y: .123236276}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_body
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 514
+        width: 254
+        height: 302
+      alignment: 9
+      pivot: {x: .517941833, y: .238439694}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_ear_right
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 410
+        width: 202
+        height: 160
+      alignment: 9
+      pivot: {x: .60734278, y: .299473673}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_ear_left
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 542
+        width: 140
+        height: 125
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_scarf
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 551
+        width: 172
+        height: 133
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_hand
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 412
+        width: 109
+        height: 102
+      alignment: 9
+      pivot: {x: .698096097, y: .756893694}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_foot_right
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 412
+        width: 111
+        height: 101
+      alignment: 9
+      pivot: {x: .542066753, y: .777390897}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_foot_left
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 335
+        width: 88
+        height: 78
+      alignment: 9
+      pivot: {x: .517427444, y: .775267005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_thigh_right
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 669
+        width: 152
+        height: 150
+      alignment: 9
+      pivot: {x: .530719757, y: .737078309}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_thigh_left
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 410
+        width: 121
+        height: 133
+      alignment: 9
+      pivot: {x: .537962615, y: .744588137}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_arm
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 446
+        width: 120
+        height: 168
+      alignment: 9
+      pivot: {x: .668617785, y: .796470284}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_eyes_angry
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 568
+        width: 237
+        height: 100
+      alignment: 9
+      pivot: {x: .631062567, y: .38339293}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_eyes_happy
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 455
+        width: 237
+        height: 100
+      alignment: 9
+      pivot: {x: .554573774, y: .349103689}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_eyes_shocked
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 920
+        width: 203
+        height: 104
+      alignment: 9
+      pivot: {x: .60262686, y: .366465628}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_mouth_happy
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 396
+        width: 75
+        height: 58
+      alignment: 9
+      pivot: {x: .464652091, y: .591415405}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_mouth_shout
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 616
+        width: 121
+        height: 69
+      alignment: 9
+      pivot: {x: .620362818, y: .664894879}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_scarftail
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 620
+        width: 82
+        height: 65
+      alignment: 9
+      pivot: {x: .883843005, y: .484080285}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_mouth_smile
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 432
+        width: 77
+        height: 24
+      alignment: 9
+      pivot: {x: .540547431, y: .702404559}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_mouth_grit
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 352
+        width: 106
+        height: 58
+      alignment: 9
+      pivot: {x: .62748307, y: .700509965}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: shiba_mouth_smirk
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 312
+        width: 80
+        height: 38
+      alignment: 9
+      pivot: {x: .49999997, y: .696375608}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

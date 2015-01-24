@@ -51,7 +51,6 @@ namespace Cat
 					this.rigidbody2D.velocity = new Vector2(this.rigidbody2D.velocity.x * Friction, this.rigidbody2D.velocity.y);
 					if (this.rigidbody2D.velocity.magnitude < 0.1f)
 					{
-						Debug.Log ("stop");
 						this.rigidbody2D.velocity = new Vector2(0, 0);
 					}
 				}

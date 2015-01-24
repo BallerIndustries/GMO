@@ -21,7 +21,7 @@ namespace Cat
 		{
 			var projectile = GameObject.Instantiate(Projectile) as GameObject;
 			projectile.transform.parent = this.transform.parent.parent;
-			projectile.transform.position = this.transform.position;
+			projectile.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, projectile.transform.position.z);
 		}
 	}
 }
