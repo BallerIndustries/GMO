@@ -28,5 +28,6 @@ public class UIController : MonoBehaviour {
 	{
 		AudioController.Play ("GameOver");
 		GameOverScreen.gameObject.SetActive (true);
+		GameOverScreen.Play ();
 	}
 }

@@ -5,10 +5,16 @@ public class GameOverScreen : MonoBehaviour {
 
 	public MiniGameController GameController;
 	public AudioController AudioController;
+	public Animator Animator;
 
 	// Use this for initialization
 	void Start () {
 	
+	}
+
+	public void Play()
+	{
+		Animator.SetTrigger("play");
 	}
 	
 	// Update is called once per frame
