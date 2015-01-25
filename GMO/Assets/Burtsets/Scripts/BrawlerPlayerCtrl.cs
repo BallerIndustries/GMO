@@ -17,16 +17,20 @@ namespace BurtDev {
 		private bool onGround = false;
 		private bool lockAnim = false;
 		private int IdleAnimID, WalkAnimID, JumpAnimID;
+		public bool playMoveSound = false;
 		public bool inControl = true;
+		public Cat.AudioController aud;
 
 		void Start() {
 			lockAnim = false;
 			onGround = false;
 			facingRight = true;
+			playMoveSound = false;
 			inControl = true;
 			IdleAnimID = Animator.StringToHash("Base Layer.shiba_idle");
 			WalkAnimID = Animator.StringToHash("Base Layer.shiba_walk");
 			JumpAnimID = Animator.StringToHash("Base Layer.shiba_jump");
+			StartCoroutine("playSteps");
 		}
 
 		void Update () {
@@ -34,7 +38,7 @@ namespace BurtDev {
 				float xAxis = Input.GetAxis("Horizontal");
 				if ((Input.GetKeyDown(KeyCode.UpArrow) || (Input.GetKeyDown(KeyCode.W))) && onGround) {
 					rigidbody2D.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
-
+					aud.Play("jump");
 				}
 				rigidbody2D.AddForce(new Vector2(xAxis * MoveSpeed * Time.deltaTime, 0f), ForceMode2D.Impulse);
 
@@ -66,15 +70,26 @@ namespace BurtDev {
 				if (!lockAnim) {
 					if (Mathf.Abs(rigidbody2D.velocity.x) > minIdleSpeed && onGround) {
 						anim.Play(WalkAnimID);
+						playMoveSound = true;
 					} else if (!onGround) {
+						playMoveSound = false;
 						anim.Play(JumpAnimID);
 					} else {
+						playMoveSound = false;
 						anim.Play(IdleAnimID);
 					}
 				}
 			}
 		}
 
+		private IEnumerator playSteps() {
+			while (true) {
+				yield return new WaitForSeconds(0.1f);
+				if (playMoveSound){
+					aud.Play("step");
+				}
+			}
+		}
 		void OnCollisionEnter2D(Collision2D _col) {
 			if (_col.collider.tag == "Ground") {
 				onGround = true;

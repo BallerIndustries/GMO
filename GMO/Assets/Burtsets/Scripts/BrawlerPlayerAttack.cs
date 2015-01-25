@@ -20,6 +20,7 @@ namespace BurtDev {
 		[Range (0f, 1f)] public float DistToEnemyImpact = 0.5f;
 		public GameObject[] ImpactPrefabs;
 		public int HitPoints = 8;
+		public Cat.AudioController aud;
 
 		private int Attack1AnimID, Attack2AnimID, Attack3AnimID;
 		private SpriteRenderer sRender;
@@ -95,10 +96,13 @@ namespace BurtDev {
 			}
 			Collider2D bossCol = Physics2D.OverlapCircle(attackDir * AttackDistance + transform.position, AttackRadius, EnemyMask);
 			if (bossCol != null){
+				aud.Play("hit2");
 				Vector3 flashloc = Vector3.Lerp(transform.position, bossCol.transform.position, DistToEnemyImpact);
 				flashloc.z = -9f;
 				Instantiate(ImpactPrefabs[Random.Range(0, ImpactPrefabs.Length)], flashloc, Quaternion.identity);
 				doDamageToEnemy();
+			} else {
+				aud.Play("hit");
 			}
 		}
 

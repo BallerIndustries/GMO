@@ -60,6 +60,8 @@ namespace BurtDev {
 
 		public float deathforce = 10f;
 
+		public Cat.AudioController aud;
+
 		private Vector3 JumpTarget;
 		private OperationMode mode = OperationMode.Idle;
 		private MovementMode mMode = MovementMode.None;
@@ -86,7 +88,7 @@ namespace BurtDev {
 			JumpID = Animator.StringToHash("Base.Jump");
 			ChargeJumpID = Animator.StringToHash("Base.JumpCharge");
 			JumpLandID = Animator.StringToHash("Base.JumpLand");
-
+			aud.Play("0477");
 		}
 
 		void FixedUpdate () {
@@ -312,16 +314,19 @@ namespace BurtDev {
 		private void DoDamage() {
 			// do GameOver WIP
 			PlayerTransform.GetComponent<BrawlerPlayerCtrl>().inControl = false;
+			PlayerTransform.GetComponent<BrawlerPlayerCtrl>().playMoveSound = false;
 			PlayerTransform.collider2D.enabled = false;
 			PlayerTransform.rigidbody2D.fixedAngle = false;
 			PlayerTransform.rigidbody2D.AddForce(deathforce * Random.insideUnitCircle.normalized, ForceMode2D.Impulse);
 			PlayerTransform.rigidbody2D.AddTorque(deathforce);
 //			Debug.Log("Player Hit!");
+			aud.Play("0477");
 			CancelInvoke("doGameOver");
 			Invoke ("doGameOver", 1.2f);
 		}
 
 		private void doGameOver() {
+//			aud.Play("0477");
 //			GameObject.FindGameObjectWithTag("GameController").GetComponent<MiniGameController>().Lose();
 //			Debug.Log("Game Over");
 		}
