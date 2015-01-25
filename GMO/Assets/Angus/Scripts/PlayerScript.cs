@@ -17,7 +17,7 @@ namespace Angus
 
 			movement = new Vector2(speed.x * inputX, speed.y * inputY);
 
-			bool shoot = Input.GetKey(KeyCode.LeftControl);
+			bool shoot = Input.GetKey(KeyCode.Space);
  
 			if (shoot)
 			{

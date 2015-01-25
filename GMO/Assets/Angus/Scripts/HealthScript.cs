@@ -40,7 +40,10 @@ namespace Angus
                 if (isEnemy)
                     Globals.BARON_DEAD = true;
                 else
+                {
+                    AudioKing.Instance.StopAudio("schmup_music");
                     GameObject.FindGameObjectWithTag("GameController").GetComponent<MiniGameController>().Lose();
+                }
 
                 Destroy(gameObject);
             }
