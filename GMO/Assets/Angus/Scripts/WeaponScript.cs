@@ -8,8 +8,7 @@ namespace Angus
         public Transform shotPrefab;
         public float shootingRate = 0.25f;
         private float shootCooldown;
-
-        // Use this for initialization
+        
         void Start()
         {
             shootCooldown = 0f;
@@ -29,6 +28,8 @@ namespace Angus
             if (CanAttack)
             {
                 shootCooldown = shootingRate;
+
+                AudioKing.Instance.PlayAudio("clatter");
 
                 var shotTransform = Instantiate(shotPrefab) as Transform;
                 shotTransform.position = transform.position + offset;

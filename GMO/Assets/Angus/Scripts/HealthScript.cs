@@ -8,6 +8,7 @@ namespace Angus
         public int hp = 1;
         public bool isEnemy = true;
         private SpriteRenderer spriteRenderer;
+
         private int showRed;
         private const int RED_DURATION = 1;
 
@@ -38,8 +39,14 @@ namespace Angus
             {
                 if (isEnemy)
                     Globals.BARON_DEAD = true;
+                else
+                    GameObject.FindGameObjectWithTag("GameController").GetComponent<MiniGameController>().Lose();
 
                 Destroy(gameObject);
+            }
+            else
+            {
+                AudioKing.Instance.PlayAudio("hit");
             }
         }
 
