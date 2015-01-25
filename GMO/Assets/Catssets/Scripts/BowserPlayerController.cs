@@ -25,6 +25,7 @@ namespace Cat
 			{
 				if (Feet.Grounded)
 				{
+					GameController.AudioController.Play ("Jump");
 					this.rigidbody2D.AddForce (new Vector2(0, JumpHeight), ForceMode2D.Impulse);
 				}
 			}
