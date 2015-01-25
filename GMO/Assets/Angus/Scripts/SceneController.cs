@@ -18,6 +18,11 @@ namespace Angus
             Camera.main.transform.position = new Vector3(0, 0, -10);
         }
 
+        void Start()
+        {
+            AudioKing.Instance.PlayAudio("schmup_music");
+        }
+
         void Update()
         {
             if (Camera.main.transform.position.x > 13 && Globals.STOP_CAMERA == false)
@@ -36,6 +41,7 @@ namespace Angus
                 if (!stageClearPlayed)
                 {
                     stageClearPlayed = true;
+                    AudioKing.Instance.StopAudio("schmup_music");
                     AudioKing.Instance.PlayAudio("stage_clear");
                 }
 
