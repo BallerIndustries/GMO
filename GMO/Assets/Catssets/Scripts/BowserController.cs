@@ -5,6 +5,7 @@ namespace Cat
 {
 	public class BowserController : MonoBehaviour
 	{
+		public DefeatBowserController GameController;
 		public Feet Feet;
 		public ProjectileSpawner HammerSpawner;
 		public int JumpHeight;
@@ -55,6 +56,7 @@ namespace Cat
 		private void ThrowHammer()
 		{
 			HammerSpawner.Fire ();
+			GameController.AudioController.Play ("Woosh");
 		}
 
 		public void Die()

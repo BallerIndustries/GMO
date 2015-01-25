@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MiniGameController : MonoBehaviour {
 	public GameObject[] MiniGames;
-	public TransitionFlash TransitionFlash;
+	public UIController UIController;
 
 	private GameObject _activeMiniGame;
 
@@ -12,9 +12,9 @@ public class MiniGameController : MonoBehaviour {
 		StartRandomMiniGame ();
 	}
 
-	private void StartRandomMiniGame()
+	public void StartRandomMiniGame()
 	{
-		TransitionFlash.Flash ();
+		UIController.Flash ();
 		var selectedIndex = Mathf.FloorToInt (Random.value * MiniGames.Length);
 		_activeMiniGame = Instantiate(MiniGames[selectedIndex]) as GameObject;
 	}
@@ -28,5 +28,6 @@ public class MiniGameController : MonoBehaviour {
 	public void Lose()
 	{
 		Destroy (_activeMiniGame);
+		UIController.ShowGameOver ();
 	}
 }
