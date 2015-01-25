@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 namespace Cat
 {
@@ -12,9 +13,11 @@ namespace Cat
 		public Animator Animator;
 		public ParticleSystem LandParticles;
 
+		public bool _enteringPipe;
+
 		// Use this for initialization
 		void Start () {
-		
+			_enteringPipe = false;
 		}
 		
 		// Update is called once per frame
@@ -63,8 +66,23 @@ namespace Cat
 			this.GetComponent<BowserPlayerController>().enabled = false;
 		}
 
+		public void GoInPipe()
+		{
+			_enteringPipe = true;
+			Animator.SetTrigger ("pipe");
+			this.GetComponent<BowserPlayerController>().enabled = false;
+			this.rigidbody2D.Sleep();
+			var sequence = DOTween.Sequence().OnComplete (() => { GameController.Win ();});
+			sequence.Append(transform.DOMove (new Vector3(31, this.transform.localPosition.y, this.transform.localPosition.z), 0.5f));
+			sequence.Append (transform.DOMove(new Vector3(0f, -4, 0f), 2f).SetRelative (true));
+		}
+	
 		public void EmitLandParticles()
 		{
+			if (_enteringPipe)
+			{
+				return;
+			}
 			LandParticles.Emit (10);
 		}
 	}
