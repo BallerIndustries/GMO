@@ -2,45 +2,42 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Cat
-{
-	public class AudioController : MonoBehaviour {
+public class AudioController : MonoBehaviour {
 
-		public AudioSource[] Sounds;
+	public AudioSource[] Sounds;
 
-		private Dictionary<string, AudioSource> _soundDictionary;
+	private Dictionary<string, AudioSource> _soundDictionary;
 
-		public void Start()
+	public void Start()
+	{
+		_soundDictionary = new Dictionary<string, AudioSource>();
+		foreach (var audioSource in Sounds)
 		{
-			_soundDictionary = new Dictionary<string, AudioSource>();
-			foreach (var audioSource in Sounds)
-			{
-				_soundDictionary.Add(audioSource.gameObject.name, audioSource);
-			}
+			_soundDictionary.Add(audioSource.gameObject.name, audioSource);
 		}
+	}
 
-		public void Play(string soundName)
+	public void Play(string soundName)
+	{
+		if (_soundDictionary.ContainsKey (soundName))
 		{
-			if (_soundDictionary.ContainsKey (soundName))
-			{
-				_soundDictionary[soundName].Play ();
-			}
-			else
-			{
-				Debug.Log ("Cannot play sound " + soundName);
-			}
+			_soundDictionary[soundName].Play ();
 		}
-
-		public void Stop(string soundName)
+		else
 		{
-			if (_soundDictionary.ContainsKey (soundName))
-			{
-				_soundDictionary[soundName].Stop ();
-			}
-			else
-			{
-				Debug.Log ("Cannot stop sound " + soundName);
-			}
+			Debug.Log ("Cannot play sound " + soundName);
+		}
+	}
+
+	public void Stop(string soundName)
+	{
+		if (_soundDictionary.ContainsKey (soundName))
+		{
+			_soundDictionary[soundName].Stop ();
+		}
+		else
+		{
+			Debug.Log ("Cannot stop sound " + soundName);
 		}
 	}
 }

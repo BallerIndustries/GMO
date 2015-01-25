@@ -4,6 +4,7 @@ using System.Collections;
 public class GameOverScreen : MonoBehaviour {
 
 	public MiniGameController GameController;
+	public AudioController AudioController;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +22,7 @@ public class GameOverScreen : MonoBehaviour {
 	private void Retry()
 	{
 		GameController.StartRandomMiniGame();
+		AudioController.Play ("Replay");
 		this.gameObject.SetActive (false);
 	}
 }

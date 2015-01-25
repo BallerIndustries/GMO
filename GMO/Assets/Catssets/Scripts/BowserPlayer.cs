@@ -39,6 +39,7 @@ namespace Cat
 		{
 			if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
 			{
+				GameController.GetComponent<AudioSource>().Stop ();
 				Invoke ("Lose", 2.5f);
 				StartCoroutine("Die");
 			}
