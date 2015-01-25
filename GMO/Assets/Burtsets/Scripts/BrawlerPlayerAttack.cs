@@ -17,6 +17,9 @@ namespace BurtDev {
 		public float Attack2LockTime = 0.1f;
 		public float Attack3LockTime = 0.2f;
 		public float TimeTilResetAttack = 0.1f;
+		[Range (0f, 1f)] public float DistToEnemyImpact = 0.5f;
+		public GameObject[] ImpactPrefabs;
+		public int HitPoints = 8;
 
 		private int Attack1AnimID, Attack2AnimID, Attack3AnimID;
 		private SpriteRenderer sRender;
@@ -24,6 +27,7 @@ namespace BurtDev {
 		private bool canAttack = true;
 		private AttackType currentAttack = AttackType.Attack1;
 		private Animator anim;
+		private int currentHP;
 
 		void Start () {
 			canAttack = true;
@@ -34,6 +38,7 @@ namespace BurtDev {
 			Attack1AnimID = Animator.StringToHash("Base Layer.shiba_attack1");
 			Attack2AnimID = Animator.StringToHash("Base Layer.shiba_attack2");
 			Attack3AnimID = Animator.StringToHash("Base Layer.shiba_attack3");
+			currentHP = HitPoints;
 		}
 
 		void Update () {
@@ -88,13 +93,22 @@ namespace BurtDev {
 			} else {
 				attackDir = -transform.right;
 			}
-			if (Physics2D.OverlapCircle(attackDir * AttackDistance + transform.position, AttackRadius, EnemyMask) != null){
+			Collider2D bossCol = Physics2D.OverlapCircle(attackDir * AttackDistance + transform.position, AttackRadius, EnemyMask);
+			if (bossCol != null){
+				Vector3 flashloc = Vector3.Lerp(transform.position, bossCol.transform.position, DistToEnemyImpact);
+				flashloc.z = -9f;
+				Instantiate(ImpactPrefabs[Random.Range(0, ImpactPrefabs.Length)], flashloc, Quaternion.identity);
 				doDamageToEnemy();
 			}
 		}
 
 		private void doDamageToEnemy() {
-			Debug.Log("Hit Enemy!");
+			currentHP--;
+			if (currentHP <= 0) {
+//				GameObject.FindGameObjectWithTag("GameController").GetComponent<MiniGameController>().Win();
+				Debug.Log("Enemy Dead!");
+			}
+//			Debug.Log("Hit Enemy!");
 		}
 	}
 }

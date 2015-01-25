@@ -56,7 +56,10 @@ namespace BurtDev {
 
 		public float StartFallSpeed = 0.05f;
 		public float FallMulti = 1.15f;
-//		public float yHeight = 1.5f;
+		public int IdleID, AttackID, ChargeAttackID, MoveID, ChargeDashID, DashID, JumpID, ChargeJumpID, JumpLandID;
+
+		public float deathforce = 10f;
+
 		private Vector3 JumpTarget;
 		private OperationMode mode = OperationMode.Idle;
 		private MovementMode mMode = MovementMode.None;
@@ -67,11 +70,23 @@ namespace BurtDev {
 		private float dashCurrentSpeed;
 		private float fallSpeed = 0.05f;
 
+		public Animator Anim;
+
 		void Start () {
 			sRender = GetComponent<SpriteRenderer>();
 			onPlatform = false;
 			facingLeft = true;
 			StartCoroutine("AttackSequence");
+			IdleID = Animator.StringToHash("Base.Idle");
+			AttackID = Animator.StringToHash("Base.Attack");
+			ChargeAttackID = Animator.StringToHash("Base.AttackCharge");
+			MoveID = Animator.StringToHash("Base.Move");
+			ChargeDashID = Animator.StringToHash("Base.DashCharge");
+			DashID = Animator.StringToHash("Base.Dash");
+			JumpID = Animator.StringToHash("Base.Jump");
+			ChargeJumpID = Animator.StringToHash("Base.JumpCharge");
+			JumpLandID = Animator.StringToHash("Base.JumpLand");
+
 		}
 
 		void FixedUpdate () {
@@ -92,6 +107,7 @@ namespace BurtDev {
 			case MovementMode.DashingSlow:
 				dashCurrentSpeed = Mathf.Lerp(dashCurrentSpeed, 0f, DashSlow);
 				rigidbody2D.MovePosition(rigidbody2D.position + new Vector2(moveV3.x, moveV3.y) * dashCurrentSpeed * Time.deltaTime);
+				if ((PlayerTransform.position - transform.position).magnitude < DashDamageRange) DoDamage();
 				break;
 			case MovementMode.JumpingUp:
 //				Debug.Log("Jump Target: " + JumpTarget);
@@ -103,7 +119,7 @@ namespace BurtDev {
 					mMode = MovementMode.Falling;
 					collider2D.enabled = true;
 				}
-				if ((PlayerTransform.position - transform.position).magnitude < DashDamageRange) DoDamage();
+	//			if ((PlayerTransform.position - transform.position).magnitude < DashDamageRange) DoDamage();
 				break;
 			case MovementMode.Falling:
 //				Debug.Log("Jump Target: " + JumpTarget);
@@ -111,7 +127,7 @@ namespace BurtDev {
 				moveX = Mathf.Lerp(rigidbody2D.position.x, JumpTarget.x, JumpXSpeed);
 				moveY = rigidbody2D.position.y - fallSpeed;
 				rigidbody2D.MovePosition(new Vector2(moveX, moveY));
-				if ((PlayerTransform.position - transform.position).magnitude < DashDamageRange) DoDamage();
+//				if ((PlayerTransform.position - transform.position).magnitude < DashDamageRange) DoDamage();
 				break;
 			default:
 				// Idling do nothing
@@ -145,6 +161,7 @@ namespace BurtDev {
 
 		private IEnumerator AttackSequence() {
 			mode = OperationMode.Idle;
+			Anim.Play(IdleID);
 			collider2D.enabled = true;
 			mMode = MovementMode.None;
 			setFacing();
@@ -171,6 +188,7 @@ namespace BurtDev {
 					moveLeft = false;
 				}
 				mMode = MovementMode.Walking;
+				Anim.Play(MoveID);
 				sRender.sprite = MoveSprite;
 				stopAllSequences();
 				Invoke("stopWalkSequence", Random.value * WalkTimeVariance + minWalkTime);
@@ -198,9 +216,11 @@ namespace BurtDev {
 				moveLeft = false;
 			}
 			sRender.sprite = DashChargeSprite;
+			Anim.Play(ChargeDashID);
 			mMode = MovementMode.None;
 			yield return new WaitForSeconds(DashPauseTime);
 			sRender.sprite = DashSprite;
+			Anim.Play(DashID);
 			mMode = MovementMode.Dashing;
 			yield return new WaitForSeconds(DashTime);
 			mMode = MovementMode.DashingSlow;
@@ -212,9 +232,11 @@ namespace BurtDev {
 		private IEnumerator DoRegularAttackSequence() {
 			Debug.Log("Attack mode");
 			setFacing();
+			Anim.Play(ChargeAttackID);
 			mMode = MovementMode.None;
 			sRender.sprite = AttackChargeSprite;
 			yield return new WaitForSeconds(AttackPauseTime);
+			Anim.Play(AttackID);
 			sRender.sprite = AttackSprite;
 			yield return new WaitForSeconds(AttackTime);
 			Vector3 dir = transform.right;
@@ -240,9 +262,11 @@ namespace BurtDev {
 				onPlatform = true;
 			}
 			setFacing(JumpTarget.x - transform.position.x < 0f);
+			Anim.Play(ChargeJumpID);
 			sRender.sprite = JumpChargeSprite;
 			yield return new WaitForSeconds(JumpChargeTime);
 			mMode = MovementMode.JumpingUp;
+			Anim.Play(JumpID);
 			sRender.sprite = JumpSprite;
 			collider2D.enabled = false;
 		}
@@ -256,11 +280,14 @@ namespace BurtDev {
 
 		void OnCollisionEnter2D(Collision2D _col) {
 			if (_col.collider.tag == "Ground" && mMode == MovementMode.Falling) {
+				/**
 				if (onPlatform) {
 					rigidbody2D.gravityScale = 0f;
 				} else {
 					rigidbody2D.gravityScale = 1f;
 				}
+				**/
+				Anim.Play(JumpLandID);
 				mMode = MovementMode.None;
 				if ((PlayerTransform.position - transform.position).magnitude < DashDamageRange) DoDamage();
 				StartCoroutine("JumpLandSequence");
@@ -283,7 +310,20 @@ namespace BurtDev {
 		}
 
 		private void DoDamage() {
-			Debug.Log("Player Hit!");
+			// do GameOver WIP
+			PlayerTransform.GetComponent<BrawlerPlayerCtrl>().inControl = false;
+			PlayerTransform.collider2D.enabled = false;
+			PlayerTransform.rigidbody2D.fixedAngle = false;
+			PlayerTransform.rigidbody2D.AddForce(deathforce * Random.insideUnitCircle.normalized, ForceMode2D.Impulse);
+			PlayerTransform.rigidbody2D.AddTorque(deathforce);
+//			Debug.Log("Player Hit!");
+			CancelInvoke("doGameOver");
+			Invoke ("doGameOver", 1.2f);
+		}
+
+		private void doGameOver() {
+//			GameObject.FindGameObjectWithTag("GameController").GetComponent<MiniGameController>().Lose();
+//			Debug.Log("Game Over");
 		}
 	}
 }
