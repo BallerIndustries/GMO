@@ -35,5 +35,14 @@ namespace Angus
                     audio.Play();
             }
         }
+
+        public void StopAudio(string filename)
+        {
+            foreach (var audio in allAudio)
+            {
+                if (audio.clip.name == filename)
+                    audio.Stop();
+            }
+        }
 	}
 }
