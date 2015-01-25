@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using DG.Tweening;
+using System;
 
 public class BowserBridge : MonoBehaviour {
 
@@ -14,11 +15,13 @@ public class BowserBridge : MonoBehaviour {
 	
 	}
 
-	public void Open()
+	// LOL MAKES NO SENSE
+	public void Open(Action callback)
 	{
 		this.transform.DOScaleX(0, 2).SetUpdate (true).OnComplete (() => 
 		 	{
 				Time.timeScale = 1;
+				callback();
 			});
 	}
 }
