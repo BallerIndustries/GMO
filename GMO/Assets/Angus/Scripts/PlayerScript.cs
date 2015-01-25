@@ -11,7 +11,7 @@ namespace Angus
 
 		// Update is called once per frame
 		void Update () 
-		{
+		{   
 			float inputX = Input.GetAxis ("Horizontal");
 			float inputY = Input.GetAxis ("Vertical");
 

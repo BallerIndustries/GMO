@@ -37,6 +37,11 @@ namespace Angus
         // Update is called once per frame
         void Update()
         {
+            //GLOBAL GAME JAM BABY
+            if (Globals.STOP_CAMERA)
+                return;
+
+
             Vector3 movement = new Vector3(speed.x * direction.x, speed.y * direction.y, 0);
             movement *= Time.deltaTime;
             transform.Translate(movement);
