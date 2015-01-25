@@ -43,7 +43,7 @@ namespace Cat
 			{
 				if (_canWin)
 				{
-					GameController.Win ();
+					this.GetComponent<BowserPlayer>().GoInPipe ();
 				}
 			}
 			else
