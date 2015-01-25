@@ -8,6 +8,7 @@ namespace Cat
 		public BowserController Bowser;
 		public BowserCameraController CameraController;
 		public BowserBridge Bridge;
+		public AudioController AudioController;
 
 		// Use this for initialization
 		public void Start () {
@@ -21,19 +22,19 @@ namespace Cat
 
 		public void Win()
 		{
-			// TODO
-			Debug.Log ("win");
+			GameObject.FindGameObjectWithTag("GameController").GetComponent<MiniGameController>().Win();
 		}
 
 		public void Lose()
 		{
-			//Player.Die ();
-			//CameraController.FollowPlayer = false;
+			Player.Die ();
+			GameObject.FindGameObjectWithTag("GameController").GetComponent<MiniGameController>().Lose();
 		}
 
 		public void OpenBridge()
 		{
-			Bridge.Open ();
+			AudioController.Play ("Clatter");
+			Bridge.Open (() => AudioController.Stop ("Clatter"));
 			Bowser.Die();
 		}
 	}

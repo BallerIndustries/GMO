@@ -25,6 +25,7 @@ namespace Cat
 			{
 				if (Feet.Grounded)
 				{
+					GameController.AudioController.Play ("Jump");
 					this.rigidbody2D.AddForce (new Vector2(0, JumpHeight), ForceMode2D.Impulse);
 				}
 			}
@@ -32,16 +33,18 @@ namespace Cat
 			if (Input.GetKey (KeyCode.LeftArrow))
 			{
 				this.rigidbody2D.AddForce (new Vector2(-AccelerationRate, 0));
+				this.transform.localScale = new Vector3(-Mathf.Abs (this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
 			}
 			else if (Input.GetKey (KeyCode.RightArrow))
 			{
 				this.rigidbody2D.AddForce (new Vector2(AccelerationRate, 0));
+				this.transform.localScale = new Vector3(Mathf.Abs (this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
 			}
 			else if (Input.GetKey (KeyCode.DownArrow))
 			{
 				if (_canWin)
 				{
-					GameController.Win ();
+					this.GetComponent<BowserPlayer>().GoInPipe ();
 				}
 			}
 			else
@@ -64,6 +67,10 @@ namespace Cat
 			if (other.gameObject.name == "PipeExit")
 			{
 				_canWin = true;
+			}
+			else if (other.gameObject.layer == LayerMask.NameToLayer("Environment"))
+			{
+				this.GetComponent<BowserPlayer>().EmitLandParticles();
 			}
 		}
 
