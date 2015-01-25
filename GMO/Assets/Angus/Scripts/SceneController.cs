@@ -6,16 +6,13 @@ namespace Angus
     public class SceneController : MonoBehaviour
     {
         public Transform baronPrefab;
-        private AudioSource stageClear;
 
         private bool stageClearPlayed = false;
         private int holds = 0;
-        private const int DELAY_AMOUNT = 120;
+        private const int DELAY_AMOUNT = 240;
 
         void Awake()
         {
-            stageClear = GetComponent<AudioSource>();
-
             Globals.BARON_DEAD = false;
             Globals.STOP_CAMERA = false;
             Camera.main.transform.position = new Vector3(0, 0, -10);
@@ -39,7 +36,7 @@ namespace Angus
                 if (!stageClearPlayed)
                 {
                     stageClearPlayed = true;
-                    stageClear.Play();
+                    AudioKing.Instance.PlayAudio("stage_clear");
                 }
 
                 holds++;
@@ -50,10 +47,6 @@ namespace Angus
                 }
             }
 
-        }
-
-        void FixedUpdate()
-        {   
         }
     }
 }
