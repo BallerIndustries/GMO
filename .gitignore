@@ -5,4 +5,5 @@ GMO/obj/
 *.sln
 *.csproj
 *.userprefs
+*.DS_Store
 *.suo
