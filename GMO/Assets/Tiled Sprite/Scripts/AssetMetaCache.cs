@@ -115,7 +115,7 @@ public static class AssetMetaCache
 	static void FetchData(string _assetPath, ref AssetMetaInfo _info)
 	{
 		try {
-			_info.timestamp = File.GetLastWriteTime(_assetPath).ToFileTimeUtc();
+			//_info.timestamp = File.GetLastWriteTime(_assetPath).ToFileTimeUtc();
 		}
 		catch (Exception e) {
 			_info.timestamp = 0;
