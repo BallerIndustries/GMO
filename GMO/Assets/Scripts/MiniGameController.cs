@@ -11,7 +11,7 @@ public class MiniGameController : MonoBehaviour {
 	void Start ()
 	{
 		_activeIndex = Mathf.FloorToInt (Random.value * MiniGames.Length);
-		StartRandomMiniGame ();
+		//StartRandomMiniGame ();
 	}
 
 	public void StartRandomMiniGame()
