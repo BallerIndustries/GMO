@@ -6,6 +6,7 @@ public class MiniGameController : MonoBehaviour {
 	public UIController UIController;
 
 	private GameObject _activeMiniGame;
+	private int _activeIndex;
 
 	void Start ()
 	{
@@ -15,7 +16,12 @@ public class MiniGameController : MonoBehaviour {
 	public void StartRandomMiniGame()
 	{
 		UIController.Flash ();
-		var selectedIndex = Mathf.FloorToInt (Random.value * MiniGames.Length);
+		int selectedIndex;
+		do
+		{
+			selectedIndex = Mathf.FloorToInt (Random.value * MiniGames.Length);
+		} while (selectedIndex == _activeIndex);
+		_activeIndex = selectedIndex;
 		_activeMiniGame = Instantiate(MiniGames[selectedIndex]) as GameObject;
 	}
 

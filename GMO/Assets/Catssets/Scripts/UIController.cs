@@ -4,7 +4,8 @@ using System.Collections;
 public class UIController : MonoBehaviour {
 
 	public AudioController AudioController;
-	public TransitionFlash TransitionFlash;
+	public TransitionFlashScreen TransitionFlashScreen
+		;
 	public GameOverScreen GameOverScreen;
 
 	// Use this for initialization
@@ -20,11 +21,12 @@ public class UIController : MonoBehaviour {
 	public void Flash()
 	{
 		AudioController.Play ("Flash");
-		TransitionFlash.Flash ();
+		TransitionFlashScreen.Flash ();
 	}
 
 	public void ShowGameOver()
 	{
+		AudioController.Play ("GameOver");
 		GameOverScreen.gameObject.SetActive (true);
 	}
 }
