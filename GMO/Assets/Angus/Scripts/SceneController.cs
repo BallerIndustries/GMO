@@ -9,10 +9,16 @@ namespace Angus
         private AudioSource stageClear;
 
         private bool stageClearPlayed = false;
+        private int holds = 0;
+        private const int DELAY_AMOUNT = 120;
 
         void Awake()
         {
             stageClear = GetComponent<AudioSource>();
+
+            Globals.BARON_DEAD = false;
+            Globals.STOP_CAMERA = false;
+            Camera.main.transform.position = new Vector3(0, 0, -10);
         }
 
         void Update()
@@ -27,11 +33,23 @@ namespace Angus
                 baronTransform.position = new Vector3(23, 0, 0);
             }
 
-            if (!stageClearPlayed && Globals.BARON_DEAD)
+
+            if (Globals.BARON_DEAD)
             {
-                stageClearPlayed = true;
-                stageClear.Play();
+                if (!stageClearPlayed)
+                {
+                    stageClearPlayed = true;
+                    stageClear.Play();
+                }
+
+                holds++;
+
+                if (holds > DELAY_AMOUNT)
+                {
+                    GameObject.FindGameObjectWithTag("GameController").GetComponent<MiniGameController>().Win();
+                }
             }
+
         }
 
         void FixedUpdate()
