@@ -19,7 +19,7 @@ namespace BurtDev {
 		private int IdleAnimID, WalkAnimID, JumpAnimID;
 		public bool playMoveSound = false;
 		public bool inControl = true;
-		public AudioController aud;
+		public Cat.AudioController aud;
 
 		void Start() {
 			lockAnim = false;

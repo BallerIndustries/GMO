@@ -20,7 +20,7 @@ namespace BurtDev {
 		[Range (0f, 1f)] public float DistToEnemyImpact = 0.5f;
 		public GameObject[] ImpactPrefabs;
 		public int HitPoints = 8;
-		public AudioController aud;
+		public Cat.AudioController aud;
 
 		private int Attack1AnimID, Attack2AnimID, Attack3AnimID;
 		private SpriteRenderer sRender;
