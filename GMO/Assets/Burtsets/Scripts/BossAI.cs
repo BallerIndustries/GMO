@@ -327,7 +327,7 @@ namespace BurtDev {
 
 		private void doGameOver() {
 //			aud.Play("0477");
-//			GameObject.FindGameObjectWithTag("GameController").GetComponent<MiniGameController>().Lose();
+			GameObject.FindGameObjectWithTag("GameController").GetComponent<MiniGameController>().Lose();
 //			Debug.Log("Game Over");
 		}
 	}

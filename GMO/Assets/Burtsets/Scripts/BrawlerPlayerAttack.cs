@@ -109,8 +109,8 @@ namespace BurtDev {
 		private void doDamageToEnemy() {
 			currentHP--;
 			if (currentHP <= 0) {
-//				GameObject.FindGameObjectWithTag("GameController").GetComponent<MiniGameController>().Win();
-				Debug.Log("Enemy Dead!");
+				GameObject.FindGameObjectWithTag("GameController").GetComponent<MiniGameController>().Win();
+//				Debug.Log("Enemy Dead!");
 			}
 //			Debug.Log("Hit Enemy!");
 		}
