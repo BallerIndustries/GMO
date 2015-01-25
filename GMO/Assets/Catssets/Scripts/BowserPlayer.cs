@@ -19,14 +19,16 @@ namespace Cat
 		
 		// Update is called once per frame
 		void Update () {
-		
+			Animator.SetBool ("grounded", Feet.Grounded);
+			Animator.SetFloat ("velocity", Mathf.Abs(this.rigidbody2D.velocity.x));
 		}
 
 		public void OnCollisionEnter2D(Collision2D other)
 		{
 			if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
 			{
-				GameController.Lose ();
+				Invoke ("Lose", 2f);
+				Die ();
 			}
 		}
 
@@ -34,7 +36,8 @@ namespace Cat
 		{
 			if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
 			{
-				GameController.Lose();
+				Invoke ("Lose", 2f);
+				Die ();
 			}
 			else if (other.gameObject.name == "WinAxe")
 			{
@@ -44,8 +47,14 @@ namespace Cat
 			}
 		}
 
+		private void Lose()
+		{
+			GameController.Lose ();
+		}
+
 		public void Die()
 		{
+			GameController.CameraController.FollowPlayer = false;
 			Animator.SetTrigger ("die");
 			Feet.collider2D.enabled = false;
 			this.collider2D.enabled = false;

@@ -28,7 +28,6 @@ namespace Cat
 		public void Lose()
 		{
 			Player.Die ();
-			CameraController.FollowPlayer = false;
 			GameObject.FindGameObjectWithTag("GameController").GetComponent<MiniGameController>().Lose();
 		}
 
