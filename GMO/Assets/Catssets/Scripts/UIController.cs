@@ -3,6 +3,7 @@ using System.Collections;
 
 public class UIController : MonoBehaviour {
 
+	public AudioController AudioController;
 	public TransitionFlash TransitionFlash;
 	public GameOverScreen GameOverScreen;
 
@@ -18,6 +19,7 @@ public class UIController : MonoBehaviour {
 
 	public void Flash()
 	{
+		AudioController.Play ("Flash");
 		TransitionFlash.Flash ();
 	}
 
