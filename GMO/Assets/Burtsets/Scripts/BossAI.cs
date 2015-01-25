@@ -60,7 +60,7 @@ namespace BurtDev {
 
 		public float deathforce = 10f;
 
-		public Cat.AudioController aud;
+		public AudioController aud;
 
 		private Vector3 JumpTarget;
 		private OperationMode mode = OperationMode.Idle;
