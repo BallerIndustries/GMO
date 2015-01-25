@@ -7,6 +7,28 @@ namespace Angus
     {
         public int hp = 1;
         public bool isEnemy = true;
+        private SpriteRenderer spriteRenderer;
+        private int showRed;
+        private const int RED_DURATION = 1;
+
+        void Start()
+        {
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        }
+
+        public void Update()
+        {
+            if (showRed > 0)
+            {
+                spriteRenderer.color = Color.red;
+                showRed--;
+            }
+            else
+            {
+                spriteRenderer.color = Color.white;
+            }
+
+        }
 
         public void Damage(int damageCount)
         {
@@ -14,6 +36,9 @@ namespace Angus
 
             if (hp <= 0)
             {
+                if (isEnemy)
+                    Globals.BARON_DEAD = true;
+
                 Destroy(gameObject);
             }
         }
@@ -28,6 +53,7 @@ namespace Angus
                 {
                     Damage(shot.damage);
                     Destroy(shot.gameObject);
+                    showRed = RED_DURATION;
                 }
             }
         }
